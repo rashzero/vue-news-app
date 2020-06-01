@@ -5,7 +5,7 @@
     <v-card-text>
       <div>{{news.title}}</div>
       <p class="display-1 text--primary">
-        by {{news.by}} score: {{news.score}}
+        by: {{news.by}}, score: {{news.score}}
       </p>
       <p>time: {{new Date(news.time).toLocaleString()}}</p>
       <div class="text--primary">
@@ -30,6 +30,6 @@ export default {
   background: #f3f3f3;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   border-radius: 10px;
-  max-width: 400px;
+  max-width: 500px;
 }
 </style>
