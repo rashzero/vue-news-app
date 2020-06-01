@@ -26,7 +26,7 @@
             group
           >
             <router-link :to="{ path: '/', query: { page: currentPage() - 1 }}">
-              <button type="button" value="Back">
+              <button type="button" value="Back" class="button">
                 Back
               </button>
             </router-link>
@@ -38,14 +38,20 @@
             >
               <button
                 type="button"
-                  v-bind:style="{ background: index === currentPage() ? '#fff333' : '' }"
+                class="button"
+                v-bind:style="{ background: index === currentPage() ? '#fff333' : '',
+                  display: index > currentPage() + 2 || index < currentPage() - 2 ? 'none' : ''}"
               >
                 {{index + 1}}
               </button>
             </router-link>
 
             <router-link :to="{ path: '/', query: { page: currentPage() +1 }}">
-              <button type="button" value="Next">
+              <button
+                type="button"
+                value="Next"
+                class="button"
+              >
                 Next
               </button>
             </router-link>
@@ -101,28 +107,27 @@ export default {
   background: #fff333;
 },
 
-button {
+.button {
   background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-        border-radius: 4px;
-    color: #555555;
-    display:block;
-        width:120px;
-        margin: 20px auto;
-    font-size: 14px;
-        text-align:center;
-    height: 20px;
-    line-height: 20px;
-    margin-bottom: 10px;
-    padding: 4px 6px;
-    vertical-align: middle;
-        text-decoration:none;
+  border: 1px solid #CCCCCC;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+  border-radius: 4px;
+  color: #555555;
+  display:block;
+  width:120px;
+  font-size: 14px;
+  text-align:center;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  padding: 4px 6px;
+  vertical-align: middle;
+  text-decoration:none;
 }
-button:hover, a.bot8:focus {
-   border-color: rgba(82, 168, 236, 0.8);
-   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
-   outline: 0 none;
+.button:hover, a.bot8:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+  outline: 0 none;
 }
 </style>
